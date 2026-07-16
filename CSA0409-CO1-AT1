@@ -1,17 +1,50 @@
 1. [C]
-    #include <stdio.h>
-    #include <unistd.h>
-    int main() {
-    pid_t pid = fork()
-    if (pid == 0) {
-        printf("Child Process\n");
-        printf("Child PID: %d\n", getpid());
-    } else {
-        printf("Parent Process\n");
-        printf("Parent PID: %d\n", getpid());
-    }
-     return 0;
-    }
-OUTPUT :
-child  PID:8745
-parent PID:8756
+        program to create child pid and parent pid
+
+                         #include <stdio.h>
+                         #include <unistd.h>
+                          int main() {
+                                 pid_t pid = fork()
+                                 if (pid == 0) {
+                                           printf("Child Process\n");
+                                           printf("Child PID: %d\n", getpid());
+                                    } else {
+                                            printf("Parent Process\n");
+                                            printf("Parent PID: %d\n", getpid());
+                                    } 
+                                       return 0;
+                                       }
+         OUTPUT :
+         child  PID:8745
+         parent PID:8756
+
+2. [b] 
+         purpose of two file management system calls :
+
+         1. open() System Call
+         Purpose: Opens an existing file or creates a new file (if the appropriate flag is used).
+         It returns a file descriptor, which is used by other system calls such as read() and write().
+
+        2. write() System Call
+        Purpose: Writes data from the program to a file.
+        It takes the file descriptor, the data to be written, and the number of bytes as arguments.
+
+3.[a]
+       The system calls required to copy the contents of one file to another are:
+
+       open() – Opens the source file for reading and the destination file for writing .
+       read() – Reads data from the source file into a buffer.
+       write() – Writes the data from the buffer to the destination file.
+       close() – Closes both the source and destination files after the copying process is complete.
+
+
+4.[a]
+          purpose of fork and exec systems calls :
+          fork() – Creates a child process from the parent process.
+          exec() – Replaces the current process with a new program and starts its execution.
+5.[a]
+         File management is an essential function of an operating system that ensures files are stored securely, accessed efficiently, and managed systematically.
+         Organizes Data –                 Stores files and directories in a structured manner for easy access.
+         Efficient Storage Management –   Allocates and deallocates disk space effectively to avoid wastage.
+         Provides Data Security –         Protects files using permissions and access control mechanisms.
+         Supports File Operations –       Allows users to create, open, read, write, rename, copy, and delete files.
