@@ -37,14 +37,51 @@
        write() – Writes the data from the buffer to the destination file.
        close() – Closes both the source and destination files after the copying process is complete.
 
+      pseudo code
+                       Start
+                     Open source file in read mode
+                     Open destination file in write mode
+                         While data is available
+                     Read data from source file
+                     Write data to destination file
+                       Close source file
+                         Close destination file
+                    Stop
+
 
 4.[a]
           purpose of fork and exec systems calls :
           fork() – Creates a child process from the parent process.
+          Example:
+                   When we open a new Terminal window in Linux, the shell uses fork() to create a new process.
+                   A web server uses fork() to create a separate process to handle each client request.
+
           exec() – Replaces the current process with a new program and starts its execution.
+          Example : 
+                    After the shell creates a child process using fork(), it uses exec() to run a command such as ls, pwd, or gcc.
 5.[a]
          File management is an essential function of an operating system that ensures files are stored securely, accessed efficiently, and managed systematically.
-         Organizes Data –                 Stores files and directories in a structured manner for easy access.
-         Efficient Storage Management –   Allocates and deallocates disk space effectively to avoid wastage.
-         Provides Data Security –         Protects files using permissions and access control mechanisms.
-         Supports File Operations –       Allows users to create, open, read, write, rename, copy, and delete files.
+         File reading is the process of accessing data stored in a file using operating system system calls.
+          The open(), read(), and close() system calls are used to open a file, read its contents, and close it                                 
+                                           
+                                         #include <fcntl.h>
+                                         #include <unistd.h>
+
+                                         int main() {
+                                           int fd;
+                                           char ch;
+
+                                        fd = open("student.txt", O_RDONLY);
+
+                                       while (read(fd, &ch, 1) > 0)
+                                         write(1, &ch, 1);
+
+                                        close(fd);
+
+                                         return 0;
+                                              }
+                  EXAMPLE :
+                                INPUT:  RAJU                 
+                                        HARI
+                                OUTPUT: RAJU
+                                        HARI 
