@@ -1,1 +1,83 @@
+1.QUESTION 
+Deadlock Condition
 
+The deadlock occurs because:
+
+*  P1 locks R1 and waits for R2.
+*  P2 locks R2 and waits for R1.
+   Both processes keep waiting for each other forever.
+
+This is called Circular Wait, one of the four Coffman deadlock conditions.
+
+* resource ordering
+        lock(R1)
+        lock(R2)
+        Critical Section
+        unlock(R2)
+        unlock(R1)
+
+2.QUESTION
+* Debugging the Cause
+   1. The processes are repeatedly moving between Ready and Waiting states.
+   This indicates:
+
+         a.  Processes are I/O-bound
+         b.They frequently request I/O operations.
+         c.CPU becomes idle while waiting for I/O completion.
+
+     Hence CPU utilization decreases.
+
+SOLUTION 
+* System-Level Optimizations
+     1. Increase Multiprogramming
+         a. Load more CPU-bound processes.
+         b.While one process waits for I/O,
+         c.another process uses the CPU.
+
+     2. Asynchronous I/O
+         Use non-blocking I/O so the process continues executing while I/O is performed.
+
+3.QUESTION
+  * Root Cause
+    The problem is not insufficient RAM.
+    The issue is:
+                  a . Large heap allocation
+                  b.Many threads accessing different memory pages
+                  c.Poor memory locality
+                  d.Frequent page replacement
+
+This causes excessive page faults.
+  Optimizations (solution )
+                1. Reduce Number of Threads
+                Use:
+                     a.Thread Pool
+                     b.Worker Threads
+
+                instead of creating many threads.
+
+               2. Optimize Memory Allocation
+                      a.Reduce heap usage
+                      b.Reuse objects
+                      c.Improve cache locality
+                      d.Allocate contiguous memory
+
+4.QUESTION
+  *Root Cause
+   Higher priority queues (Q1 and Q2) continuously receive new processes.
+    Scheduler always selects higher-priority queues.
+
+Optimization ( SOLUTION )
+Aging Technique
+   a.Increase priority gradually.
+
+5.QUESTION
+
+    *Debugging
+           The time quantum is smaller than the average CPU burst.
+
+    Optimizations(SOLUTION )
+           1. Increase Time Quantum
+           2. Reduce I/O Blocking
+                 a.Use asynchronous I/O
+                 b.Buffering
+                 c.Batch I/O operations
