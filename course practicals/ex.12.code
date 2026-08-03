@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int alloc[5], max[5], need[5], avail, i;
+
+    printf("Enter Allocation:\n");
+    for(i=0;i<5;i++)
+        scanf("%d",&alloc[i]);
+
+    printf("Enter Maximum:\n");
+    for(i=0;i<5;i++)
+        scanf("%d",&max[i]);
+
+    printf("Enter Available Resource: ");
+    scanf("%d",&avail);
+
+    printf("\nSafe Sequence: ");
+
+    for(i=0;i<5;i++) {
+        need[i]=max[i]-alloc[i];
+        if(need[i]<=avail) {
+            printf("P%d ",i);
+            avail+=alloc[i];
+        }
+    }
+
+    return 0;
+}
