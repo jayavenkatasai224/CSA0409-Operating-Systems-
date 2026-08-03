@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int pr[5], i, n, min, pos;
+
+    printf("Enter number of processes: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++) {
+        printf("Priority of P%d: ",i+1);
+        scanf("%d",&pr[i]);
+    }
+
+    min=pr[0];
+    pos=0;
+
+    for(i=1;i<n;i++)
+        if(pr[i]<min) {
+            min=pr[i];
+            pos=i;
+        }
+
+    printf("First Executing Process: P%d",pos+1);
+
+    return 0;
+}
