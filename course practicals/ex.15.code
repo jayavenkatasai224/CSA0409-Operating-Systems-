@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+    int mutex=1, readcount=0;
+
+    mutex--;
+    readcount++;
+    printf("Reader is Reading\n");
+    readcount--;
+    mutex++;
+
+    mutex--;
+    printf("Writer is Writing\n");
+    mutex++;
+
+    return 0;
+}
