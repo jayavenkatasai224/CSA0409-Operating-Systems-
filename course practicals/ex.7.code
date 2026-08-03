@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int bt[5], i, j, temp;
+
+    printf("Enter Burst Times:\n");
+
+    for(i=0;i<5;i++)
+        scanf("%d",&bt[i]);
+
+    for(i=0;i<4;i++)
+        for(j=i+1;j<5;j++)
+            if(bt[i]>bt[j]) {
+                temp=bt[i];
+                bt[i]=bt[j];
+                bt[j]=temp;
+            }
+
+    printf("SJF Order:\n");
+
+    for(i=0;i<5;i++)
+        printf("%d ",bt[i]);
+
+    return 0;
+}
