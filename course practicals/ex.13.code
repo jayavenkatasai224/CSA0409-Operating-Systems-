@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int mutex=1, full=0, empty=5;
+    int n,i;
+
+    printf("Enter number of items: ");
+    scanf("%d",&n);
+
+    printf("\nProducer:\n");
+    for(i=1;i<=n && empty>0;i++) {
+        empty--;
+        mutex--;
+        printf("Produced Item %d\n",i);
+        mutex++;
+        full++;
+    }
+
+    printf("\nConsumer:\n");
+    for(i=1;i<=n;i++) {
+        full--;
+        mutex--;
+        printf("Consumed Item %d\n",i);
+        mutex++;
+        empty++;
+    }
+
+    return 0;
+}
