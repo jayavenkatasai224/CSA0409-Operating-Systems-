@@ -1,1 +1,74 @@
+1.AIM :-
+To automatically manage disk space by deleting or compressing log files when disk usage exceeds 80%.
 
+Algorithm :--
+ 1.Start.
+ 2. Set the disk usage threshold to 80%.
+ 3.Get the current disk usage.
+ 4.If disk usage is greater than 80%, identify the log files.
+ 5.Sort the log files from largest to smallest.
+ 6.Delete or compress the log files one by one.
+ 7.Check the disk usage after each operation.
+ 8.Stop when disk usage becomes 80% or less.
+ 9.Stop.
+
+2.AIM :-
+To improve CPU efficiency by executing processes according to their priority levels.
+
+Algorithm :--
+   1.Start.
+   2.Input the list of processes with their priority levels.
+   3.Sort the processes based on priority, with the highest priority first.
+   4.Select the process with the highest priority.
+   5.Allocate CPU time to the selected process.
+   6.Execute the process.
+   7.Check whether the process is completed.
+   8.If the process is not completed, slightly reduce its priority and add it back to the process list.
+   9.Repeat the process until all processes are completed.
+   10.Stop.
+
+3.AIM :--
+To efficiently allocate available RAM among multiple virtual machines for balanced performance and optimal memory utilization.
+
+Algorithm :--
+   1.Start.
+   2. Set total RAM to 16 GB.
+   3.Reserve 4 GB of RAM for the host system.
+   4.Calculate available RAM: 16 GB − 4 GB = 12 GB.
+   5.Input the number of virtual machines.
+   6.Set the minimum RAM required for each VM to 2 GB.
+   7.For each VM, check whether at least 2 GB of RAM is available.
+   8.If sufficient RAM is available, allocate 2 GB to the VM and reduce the available RAM.
+   9.If insufficient RAM is available, display "Insufficient memory".
+   10.Repeat until all VMs are processed.
+   11.Stop.
+
+4.AIM :--
+To select the most suitable hypervisor based on performance, budget, and hardware requirements.
+
+Algorithm :--
+   1.Start.
+   2.Input the required performance, budget, and hardware access.
+   3.Check whether high performance is required and direct hardware access is available.
+   4.If both conditions are true, select a Type-1 hypervisor.
+   5.Otherwise, check whether the budget is low.
+   6.If the budget is low, select a Type-2 hypervisor.
+   7.Otherwise, select a Type-1 hypervisor.
+   8.Display the selected hypervisor.
+   9.Stop.
+
+
+5.AIM :--
+
+To limit CPU and memory usage of applications to ensure balanced and efficient system performance.
+
+Algorithm:--
+   1.Start.
+   2.Input the list of applications.
+   3.Select each application one by one.
+   4.Create a control group (cgroup) for the application.
+   5.Set a maximum CPU usage limit for the application.
+   6.Set a maximum memory usage limit for the application.
+   7.Assign the application's process to the created cgroup.
+   8.Repeat the steps for all applications.
+   9.Stop.
