@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <sys/stat.h>
+
+int main() {
+    struct stat s;
+
+    stat("file.txt", &s);
+
+    printf("File permissions checked successfully\n");
+
+    if(s.st_mode & S_IRUSR)
+        printf("Owner: Read permission\n");
+
+    if(s.st_mode & S_IWUSR)
+        printf("Owner: Write permission\n");
+
+    if(s.st_mode & S_IXUSR)
+        printf("Owner: Execute permission\n");
+
+    return 0;
+}
