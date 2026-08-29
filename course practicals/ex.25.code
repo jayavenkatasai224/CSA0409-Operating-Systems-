@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int buffer = 0, choice;
+
+    while(1) {
+        printf("\n1. Produce\n2. Consume\n3. Exit");
+        printf("\nEnter choice: ");
+        scanf("%d", &choice);
+
+        if(choice == 1) {
+            if(buffer == 0) {
+                buffer = 1;
+                printf("Producer produced an item");
+            } else {
+                printf("Buffer is full");
+            }
+        }
+
+        else if(choice == 2) {
+            if(buffer == 1) {
+                buffer = 0;
+                printf("Consumer consumed an item");
+            } else {
+                printf("Buffer is empty");
+            }
+        }
+
+        else if(choice == 3) {
+            break;
+        }
+
+        else {
+            printf("Invalid choice");
+        }
+    }
+
+    return 0;
+}
