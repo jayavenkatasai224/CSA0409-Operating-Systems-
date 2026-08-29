@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    char text[100];
+    int choice;
+
+    printf("1. Write File\n2. Read File\n3. Append File\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    if(choice == 1) {
+        fp = fopen("file.txt", "w");
+        printf("Enter text: ");
+        scanf(" %[^\n]", text);
+        fprintf(fp, "%s", text);
+        fclose(fp);
+        printf("File written successfully");
+    }
+
+    else if(choice == 2) {
+        fp = fopen("file.txt", "r");
+
+        if(fp == NULL) {
+            printf("File not found");
+            return 0;
+        }
+
+        while(fgets(text, 100, fp) != NULL)
+            printf("%s", text);
+
+        fclose(fp);
+    }
+
+    else if(choice == 3) {
+        fp = fopen("file.txt", "a");
+        printf("Enter text: ");
+        scanf(" %[^\n]", text);
+        fprintf(fp, "\n%s", text);
+        fclose(fp);
+        printf("Text appended successfully");
+    }
+
+    else {
+        printf("Invalid choice");
+    }
+
+    return 0;
+}
