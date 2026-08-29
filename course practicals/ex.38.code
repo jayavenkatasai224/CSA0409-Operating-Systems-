@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int a[20], n, head, total = 0, i, j, temp;
+
+    printf("Enter number of requests: ");
+    scanf("%d", &n);
+
+    printf("Enter requests: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter head position: ");
+    scanf("%d", &head);
+
+    // Sort requests
+    for(i = 0; i < n; i++)
+        for(j = i + 1; j < n; j++)
+            if(a[i] > a[j]) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+
+    // Move right
+    for(i = 0; i < n; i++) {
+        if(a[i] >= head) {
+            total += abs(a[i] - head);
+            head = a[i];
+        }
+    }
+
+    // Move left
+    for(i = n - 1; i >= 0; i--) {
+        if(a[i] < head) {
+            total += abs(a[i] - head);
+            head = a[i];
+        }
+    }
+
+    printf("Total head movement = %d", total);
+
+    return 0;
+}
