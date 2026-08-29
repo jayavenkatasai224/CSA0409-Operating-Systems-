@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+
+    printf("Enter number of philosophers: ");
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++) {
+        printf("\nPhilosopher %d is Thinking", i);
+        printf("\nPhilosopher %d takes Left Fork", i);
+        printf("\nPhilosopher %d takes Right Fork", i);
+        printf("\nPhilosopher %d is Eating", i);
+        printf("\nPhilosopher %d puts down Forks\n", i);
+    }
+
+    return 0;
+}
